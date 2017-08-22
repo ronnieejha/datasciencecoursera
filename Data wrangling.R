@@ -55,4 +55,7 @@ reshape_raw$date <- as.yearmon(paste(reshape_raw$year,reshape_raw$month, sep = "
 head(reshape_raw)
 str(reshape_raw)
 
+reshape_raw$Date <- as.Date(paste(month.abb[as.numeric(reshape_raw$month)], "01", reshape_raw$year, sep="-"), 
+                   format = "%b-%d-%Y")
+dataset <- reshape_raw[,c("Date","value")]
 
